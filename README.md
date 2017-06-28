@@ -20,7 +20,7 @@ Content of server.js
 ## Step 2: Add GET Request handlers in server.js
 
 #### What are GET Requests?
-An HTTP GET request is what you get when you enter a URI in your browser or when you click on a link on a web page. Certain HTML elements, like <img> also generate GET requests. GET requests a resource (usually a web page or an image) from the server. You can pass additional information to a server-side script by adding 'query parameters' after the script, such as http://example.com?q=42332.
+An HTTP GET request is what you get when you enter a URI in your browser or when you click on a link on a web page. Certain HTML elements, like img also generate GET requests. GET requests a resource (usually a web page or an image) from the server. You can pass additional information to a server-side script by adding 'query parameters' after the script, such as http://example.com?q=42332.
 
 Content of server.js (Additions to the earlier version)
 
@@ -44,7 +44,7 @@ Content of server.js (Additions to the earlier version)
 ## Step 3: Add POST Request handler in server.js
 
 #### What are POST Requests?
-A POST request is similar to a GET request. The difference is that any additional information is sent in the body of the request, rather than as part of the URI. You can generate POST requests using <form method="post"> elements in HTML, where the form field values are sent in the request body.
+A POST request is similar to a GET request. The difference is that any additional information is sent in the body of the request, rather than as part of the URI. You can generate POST requests using form elements in HTML, where the form field values are sent in the request body.
 
 
 For handling POST requests, you need to first install "body-parser" package.
@@ -52,14 +52,14 @@ Simply, run the following command in your terminal:
 	
 	npm install --save body-parser
 
-Q. What does the body-parser do?
-A. body-parser, acting as a middleware, extracts the entire body portion of an incoming request stream and exposes it on req.body as something easier to interface with . Yeah! you can do it by yourself as well but using body-parser will do what is required and will save your trouble.
+Q. What does the body-parser do?  
+A. body-parser, acting as a middleware, extracts the entire body portion of an incoming request stream and exposes it on req.body as something easier to interface with . Yeah! you can do it by yourself as well but using body-parser will do what is required and will save your trouble.  
 If you want to go into somewhat detail: https://stackoverflow.com/a/38322792/5733330
 
 	app.use(bodyParser.urlencoded({extended: true}));
 bodyParser.urlencoded(): Parses the text as URL encoded data (which is how browsers tend to send form data from regular forms set to POST) and exposes the resulting object (containing the keys and values) on req.body.
 
-Q. What is the functionality of "extended"?
+Q. What is the functionality of "extended"?  
 A. A new body object containing the parsed data is populated on the request object after the 
 middleware (i.e. req.body). This object will contain key-value pairs, where the value can be a 
 string or array (when extended is false), or any type (when extended is true).
