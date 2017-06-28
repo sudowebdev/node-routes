@@ -123,3 +123,36 @@ server.js (Only the additions to the earlier version)
 
 For a more detailed example: https://codeforgeek.com/2014/09/handle-get-post-request-express-4/
 
+
+## Using POSTMAN
+
+As a back-end developer, it is not in our forte to create an interface (for example form), which will  
+eventually be used to make a POST request. And, we cannot make POST requests directly in the browser  
+as in we cannot pass the "body" of the POST request in the browser by itself. 
+
+Thus to solve the above problems, we make use of a testing tool, popularly known as POSTMAN.
+As the name says, it is made for testing out POST requests that are otherwise not possible without 
+creating a form. 
+
+#### POST request in POSTMAN
+The process is extremely simple.
+
+1. First enter the request URL, on which to send the POST request. 
+	Which in this case is: http://localhost:2345
+2. Select the POST method (just to the left of request URL).
+3. Open the "body" tab (just below the request URL).
+4. Choose "x-www-form-urlencoded" as this is the type in which browsers send the form data.
+5. Enter key and value pairs. 
+	In this case they are:
+
+	| key           | value      |
+	|:-------------:| -----:     |
+	| username      | user123    |
+	| password      | pass123    |
+
+
+#### Making GET, PUT, DELETE requests in POSTMAN
+> The process of making other types of requests i.e. GET, PUT, DELETE is exactly the same.  
+The only thing that needs to be kept in mind is that the GET request is the only request that doesn't  
+have a body in itself. All other requests ie. POST, PUT, DELETE have a "body" field in the request.  
+Just like POST request discussed above.
