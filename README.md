@@ -207,7 +207,7 @@ Now, we have everything set-up. So let's modularize the routes that we have.
 ###### The Steps:  
 1. Create a folder **routes** in your root directory.  
 2. Create a new file **index.js** in it.  
-3. Require "router" at the top to use the functionality of router in Node.js  
+3. Require "router" at the top to use the functionality of router in Node.js:  
 	const router = require('express').Router();  
 4. Move all the routes in server.js to index.js (**replace app with router**, since we created the route with the name of **router** in index.js (see Step 6 [here](https://github.com/sudowebdev/node-routes/commits/master) to see the modifications))  
 5. Export the router that we have made in index.js with:  
@@ -228,8 +228,10 @@ For a more detailed answer: https://www.safaribooksonline.com/blog/2014/03/10/ex
 
 ## Step 7: Modularizing the routes (Part 3: The Conclusion)
 
-There must be some doubt in your mind related to the require statement that we have used in server.js
+There must be some doubt in your mind related to the require statement that we have used in server.js  
+
 	const basicRouter = require('./routes');  
+
 We haven't used ./routes/index.js as the path. This is because, in our package.json, the default is set to index.js in the main field. So, if nothing is mentioned, then the Node system takes index.js as the default and do the proceedings.  
 
 Now let's take the modularization to a new level.  
