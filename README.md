@@ -124,7 +124,7 @@ server.js (Only the additions to the earlier version)
 For a more detailed example: https://codeforgeek.com/2014/09/handle-get-post-request-express-4/
 
 
-## Using POSTMAN
+## Step 4: Using POSTMAN
 
 As a back-end developer, it is not in our forte to create an interface (for example form), which will  
 eventually be used to make a POST request. And, we cannot make POST requests directly in the browser  
@@ -191,7 +191,7 @@ Go to server.js and add these lines of codes below the earlier GET requests:
 		res.send('The GET Request on "/basic3" has been handled by the server.');	
 	})
 
-Now you can start your server and check the results by opening:
+Now you can start your server and check the results by opening:  
 -> localhost:2345/basic1  
 -> localhost:2345/basic2  
 -> localhost:2345/basic3  
@@ -209,7 +209,7 @@ Now, we have everything set-up. So let's modularize the routes that we have.
 2. Create a new file **index.js** in it.  
 3. Require "router" at the top to use the functionality of router in Node.js  
 	const router = require('express').Router();  
-4. Move all the routes in server.js to index.js (*replace app with router*, since we created the route with the name of **router** in index.js (see Step 6 [here](https://github.com/sudowebdev/node-routes/commits/master) to see the modifications))  
+4. Move all the routes in server.js to index.js (**replace app with router**, since we created the route with the name of **router** in index.js (see Step 6 [here](https://github.com/sudowebdev/node-routes/commits/master) to see the modifications))  
 5. Export the router that we have made in index.js with:  
 	module.exports = router 
 6. Finally, require that **router** in server.js and use it:  
@@ -224,6 +224,3 @@ A. Middleware is any number of functions that are invoked by the Express.js rout
 For a more detailed answer: https://www.safaribooksonline.com/blog/2014/03/10/express-js-middleware-demystified/  
 
 ###### Please refer to the [COMMITS](https://github.com/sudowebdev/node-routes/commits/master) section above to see the additions in the code to get a more clear understanding of what is happening. 
-
-
-
