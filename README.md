@@ -158,7 +158,7 @@ have a body in itself. All other requests ie. POST, PUT, DELETE have a "body" fi
 Just like POST request discussed above.
 
 
-## Step 5: Modularizing the routes
+## Step 5: Modularizing the routes (Part 1)
 
 Now is the time to modularize our work, to make it more organizable and manageable.  
 Modularizing is often one of the key steps when you are working on a big project having multitude of files.
@@ -192,9 +192,38 @@ Go to server.js and add these lines of codes below the earlier GET requests:
 	})
 
 Now you can start your server and check the results by opening:
--> localhost:2345/basic1	
--> localhost:2345/basic2
--> localhost:2345/basic3
--> localhost:2345/api/route1
--> localhost:2345/api/route2
--> localhost:2345/api/route3
+-> localhost:2345/basic1  
+-> localhost:2345/basic2  
+-> localhost:2345/basic3  
+-> localhost:2345/api/route1  
+-> localhost:2345/api/route2  
+-> localhost:2345/api/route3  
+
+
+## Step 6: Modularizing the routes (Part 2)  
+
+Now, we have everything set-up. So let's modularize the routes that we have.  
+
+###### The Steps:  
+1. Create a folder **routes** in your root directory.  
+2. Create a new file **index.js** in it.  
+3. Require "router" at the top to use the functionality of router in Node.js  
+	const router = require('express').Router();  
+4. Move all the routes in server.js to index.js (*replace app with router*, since we created the route with the name of **router** in index.js (see Step 6 [here](https://github.com/sudowebdev/node-routes/commits/master) to see the modifications))  
+5. Export the router that we have made in index.js with:  
+	module.exports = router 
+6. Finally, require that **router** in server.js and use it:  
+	const basicRouter = require('./routes/index.js');
+	app.use('/', basicRouter);  
+
+**P.S.** One thing here to keep in mind is that we are using *app.use* and *not app.get* since we are  
+using a middleware to direct the routes to another place.  
+
+Q. What is a middleware?  
+A. Middleware is any number of functions that are invoked by the Express.js routing layer before your final request handler is, and thus sits in the middle between a raw request and the final intended route.  
+For a more detailed answer: https://www.safaribooksonline.com/blog/2014/03/10/express-js-middleware-demystified/  
+
+###### Please refer to the [COMMITS](https://github.com/sudowebdev/node-routes/commits/master) section above to see the additions in the code to get a more clear understanding of what is happening. 
+
+
+
