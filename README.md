@@ -156,3 +156,45 @@ The process is extremely simple.
 The only thing that needs to be kept in mind is that the GET request is the only request that doesn't  
 have a body in itself. All other requests ie. POST, PUT, DELETE have a "body" field in the request.  
 Just like POST request discussed above.
+
+
+## Step 5: Modularizing the routes
+
+Now is the time to modularize our work, to make it more organizable and manageable.  
+Modularizing is often one of the key steps when you are working on a big project having multitude of files.
+
+So, as our first step, we will be adding some more GET requests, to expand our project a bit.
+
+Go to server.js and add these lines of codes below the earlier GET requests:
+
+	app.get('/api/route1', function(req, res){
+		res.send('The GET Request on "/api/route1" has been handled by the server.');
+	})
+
+	app.get('/api/route2', function(req, res){
+		res.send('The GET Request on "/api/route2" has been handled by the server.');
+	})
+
+	app.get('/api/route3', function(req, res){
+		res.send('The GET Request on "/api/route3" has been handled by the server.');
+	})
+
+	app.get('/basic1', function(req, res){
+		res.send('The GET Request on "/basic1" has been handled by the server.');	
+	})
+
+	app.get('/basic2', function(req, res){
+		res.send('The GET Request on "/basic2" has been handled by the server.');	
+	})
+
+	app.get('/basic3', function(req, res){
+		res.send('The GET Request on "/basic3" has been handled by the server.');	
+	})
+
+Now you can start your server and check the results by opening:
+-> localhost:2345/basic1	
+-> localhost:2345/basic2
+-> localhost:2345/basic3
+-> localhost:2345/api/route1
+-> localhost:2345/api/route2
+-> localhost:2345/api/route3

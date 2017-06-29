@@ -24,6 +24,29 @@ app.get('/api', function(req, res){
 	res.send('The GET Request on "/api" has been handled by the server.');
 })
 
+app.get('/api/route1', function(req, res){
+	res.send('The GET Request on "/api/route1" has been handled by the server.');
+})
+
+app.get('/api/route2', function(req, res){
+	res.send('The GET Request on "/api/route2" has been handled by the server.');
+})
+
+app.get('/api/route3', function(req, res){
+	res.send('The GET Request on "/api/route3" has been handled by the server.');
+})
+
+app.get('/basic1', function(req, res){
+	res.send('The GET Request on "/basic1" has been handled by the server.');	
+})
+
+app.get('/basic2', function(req, res){
+	res.send('The GET Request on "/basic2" has been handled by the server.');	
+})
+
+app.get('/basic3', function(req, res){
+	res.send('The GET Request on "/basic3" has been handled by the server.');	
+})
 
 app.post('/', function(req, res){
 
