@@ -224,3 +224,32 @@ A. Middleware is any number of functions that are invoked by the Express.js rout
 For a more detailed answer: https://www.safaribooksonline.com/blog/2014/03/10/express-js-middleware-demystified/  
 
 ###### Please refer to the [COMMITS](https://github.com/sudowebdev/node-routes/commits/master) section above to see the additions in the code to get a more clear understanding of what is happening. 
+
+
+## Step 7: Modularizing the routes (Part 3: The Conclusion)
+
+There must be some doubt in your mind related to the require statement that we have used in server.js
+	const basicRouter = require('./routes');  
+We haven't used ./routes/index.js as the path. This is because, in our package.json, the default is set to index.js in the main field. So, if nothing is mentioned, then the Node system takes index.js as the default and do the proceedings.  
+
+Now let's take the modularization to a new level.  
+As we can see in our index.js, there are lots of routes that have '/api' in common. So let's take all those and put them in a new file.  
+
+###### The Steps:  
+1. Create a new file **api.js** in the **routes** folder.  
+2. Put this at the top:  
+	const router = require('express').Router();  
+3. Copy all the routes that have '/api' common in them and paste them all in api.js.  
+Now, remove the "/api" from the path of each route and add the following line in index.js:  
+	router.use('/api', apiRouter);  
+Now, we need to define what is apiRouter. To define it, add this line at the top:  
+	const apiRouter = require('./api.js');  
+4. Finally, export router in **api.js** with:  
+	module.exports = router;  
+
+Check the same routes again in the browser. You'll get the same result, but your code is now better organised than ever.  
+
+###### Check Step 7 [here](https://github.com/sudowebdev/node-routes/commits/master) to see the changes in the code.  
+
+
+
